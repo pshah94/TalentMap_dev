@@ -1,2 +1,2 @@
 # TalentMap_dev
-Talent Map capstone project - development env
+Talent Map capstone project - devlopment env
