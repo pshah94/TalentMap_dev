@@ -14,11 +14,14 @@
     angular.module("app").config(function($routeProvider, $locationProvider) {
 
         $routeProvider.when('/', {
-            controller: 'HomeCtrl',
+            controller: 'HomeController',
             templateUrl: 'app/modules/home/home.html'
         }).when('/client/login', {
             controller: 'ClientLoginCtrl',
             templateUrl: 'app/modules/client/login/login.html'
+        }).when('/client/clienthome', {
+            controller: 'ClientHomeController',
+            templateUrl: 'app/modules/client/client_dashboard/clienthome.html'
         }).otherwise({
             redirectTo: '/'
         });
