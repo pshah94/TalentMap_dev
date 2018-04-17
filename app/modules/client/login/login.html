@@ -1,2 +1,46 @@
-<h1> Hello World</h1>
-{{msg}}
+<!DOCTYPE html>
+<main class="clientlogin">
+
+   
+            <form ng-submit="loginSubmit()" class="form">           
+              <div class="col-md-4">
+                <h2><b>Client Login</b></h2>
+                <div class="form-group">
+                  <label>UserName</label>
+                  <input type="text" class="form-control" ng-model="username" placeholder="username" required=""/>
+                </div> 
+       
+                <div class="form-group">
+                  <label>Password </label>
+                  <input type="password" class="form-control" ng-model="password" placeholder="password" required=""/>
+                </div>
+       
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control" ng-click="loginClient()">Login</button>
+                  <span class="alert-danger">{{ loginerror }}</span>
+                </div>
+              </div>
+            </form>
+        
+         
+          
+            <form  class="form"> 
+            <div class="col-md-4">
+                <h2><b>New User?</b></h2>
+                <div class="form-group">
+                    <label>Email ID</label>
+                    <input type="text" class="form-control" ng-model="emailid" placeholder="emailid" required=""/>
+                </div> 
+                <div class="form-group">
+                    <button  class="btn btn-primary form-control" ng-click="registerClient()" >Submit</button> 
+                    <span class="alert-danger">{{ registrationMessage }}</span>
+                  </div>
+    
+            </div>
+          </form>
+       
+
+      
+        <div class="push"></div>
+    
+</main>
