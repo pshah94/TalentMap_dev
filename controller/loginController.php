@@ -22,7 +22,6 @@ class loginController
             
             if (isset($token->id))
             {
-                
                 return true;
             }
         } catch (Exception $e) {
