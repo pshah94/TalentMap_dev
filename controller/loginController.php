@@ -42,11 +42,11 @@ class loginController
         $param["password"] = $data["password"];
         
         $conn = dbCon::getDbCon();
-        $sql = "select count(*) as 'row_count' from user_details where email = ? and user_type = ? and password = ?";
+        $sql = "select count(*) as 'row_count', id as 'user_id' from user_details where email = ? and user_type = ? and password = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sis",$param["email"],$param["user_type"],$param["password"]);
         $stmt->execute();
-        $stmt->bind_result($rowCount);
+        $stmt->bind_result($rowCount,$user_id);
         //when only one row
         $stmt->fetch();
         
@@ -56,10 +56,13 @@ class loginController
             $token['id'] = $param["email"];
             $token['user_type'] = $param["user_type"];
             $token['password'] = $param["password"];
+            $token['user_id'] = $user_id;
+            
              
             $resData['token'] = JWT::encode($token,  phpConfig::$config['jwt_key']);
             $resData["loginStatus"] = phpConfig::$config["statusCode"]["validCredentials"];
             $resData["loginMessage"] = "Go";
+            $resData["user_id"] = $user_id;
             
         }else{
             $resData["loginStatus"] = phpConfig::$config["statusCode"]["invalidCredentials"];

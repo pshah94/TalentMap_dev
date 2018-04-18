@@ -37,6 +37,12 @@ class phpConfig{
         "validCredentials" => 200
     ),
     "jwt_key" =>"t@lentM@p",
+       
+    "invalidTokenReponse" => array(
+        "status" => 400,
+        "message" => "Invalid Token"
+    ),
+       
     "registrationRequestMailTemplate" => array(
            "subject" => "TalentMap Registration Request",
             "body"  => "Hello, <br>".
