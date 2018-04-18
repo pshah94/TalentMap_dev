@@ -43,24 +43,27 @@ lsScope = "";
 
         $scope.loginClient = function() {
             
-            var param = {};
-            $location.path("/client/clienthome");
+            var param = {}; 
             //apiName should be same as webApi php file's switch case
-            /*param.apiName= "registerUserWithEmail";
+            param.apiName= "loginUser";
             param.data = {
-                "username" : $scope.username,
+                "email" : $scope.username,
                 "password" : $scope.password,
-                "userType" : 3
+                "user_type" : 3
             } ;
            
             var success = function(responseData) {
             	//must check status code responded by api called
             	if(responseData.status == config.statusCode.taskCompleted){
             		console.log("everything worked fine");
-            		var receivedData = responseData.data.message;
-                    $scope.loginerror = JSON.stringify(receivedData);
-            	
-            	}
+                    var receivedData = responseData.data;
+                    if(receivedData.loginStatus == 200){
+                        User.loginUser(receivedData);
+                        $location.path("/client/clienthome");
+                    }else{
+                        $scope.loginerror = receivedData.loginMessage;
+                    }
+                }
                 
             }
             var failure = function(responseData) {
@@ -74,14 +77,12 @@ lsScope = "";
                 }
             }
             InvokeAPICall.makeCall(param, success, failure);
-*/
+
         };
         
-        
-        /* lsScope = $scope;
-        $scope.userprofilePicSrc = window.config.defaultProfilePic;
-        alert($location.path());
-        $scope.msg = "client Page";
-        console.log(lsScope);*/
+        $timeout(function(){
+            $scope.username = "parth_shah9478@yahoo.com";
+            $scope.password = "abc1234";
+        })
     }
 })();

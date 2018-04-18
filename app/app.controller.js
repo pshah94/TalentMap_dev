@@ -39,9 +39,10 @@ var usr = "";
 
         var userFactory = {};
 
-        userFactory.loginUser = function(userId) {
+        userFactory.loginUser = function(data) {
             user.isLoggedIn = true;
-            user.userId = userId;
+            user.userId = data.user_id;
+            user.token = data.token;
         };
         userFactory.logoutUser = function() {
             user = {
@@ -51,58 +52,21 @@ var usr = "";
                 isLoggedIn: false,
             };
         };
+        userFactory.getUserId = function(){
+            return user.userId;
+        }
+        userFactory.getUserToken = function(){
+            return user.token;
+        }
         userFactory.isLoggedIn = function() {
             return user.isLoggedIn;
         };
-        userFactory.setUserProfile = function(userProfile) {
-            return user.userProfile = userProfile;
-        };
-        userFactory.getUserProfile = function() {
-            return user.userProfile;
-        };
         userFactory.setUserRoleId = function(userRoleId) {
-            user.userProfile.userRoleId = userRoleId;
+            user.roleId = userRoleId;
         };
         userFactory.getUserRoleId = function() {
-            return user.userProfile.userRoleId;
+            return user.roleId;
         };
-
-        userFactory.getUserProfileName = function() {
-            return user.userProfile.name;
-        };
-        userFactory.getUserFamilyName = function() {
-            return user.userProfile.familyName;
-        };
-        userFactory.setUserEmailId = function(emailId) {
-            user.userProfile.email = emailId;
-        };
-        userFactory.getUserEmailId = function() {
-            return user.userProfile.email;
-        };
-        userFactory.setUserPhoneCountryCode = function(phoneCountryCode) {
-            user.userProfile.phoneCountryCode = phoneCountryCode;
-        };
-        userFactory.getUserPhoneCountryCode = function() {
-            return user.userProfile.phoneCountryCode;
-        };
-        userFactory.setUserPhoneNo = function(phoneNo) {
-            user.userProfile.phoneNo = phoneNo;
-        };
-        userFactory.getUserPhoneNo = function() {
-            return user.userProfile.phoneNo;
-        };
-        userFactory.setUserProfilePicName = function(userImageName) {
-            user.userProfile.userImage = userImageName;
-        };
-        userFactory.getUserProfilePicName = function() {
-            return user.userProfile.userImage;
-        };
-
-        userFactory.getUserId = function() {
-            return WL.Client.getUserName("UserIdentity");
-        };
-
-
 
         return userFactory;
     });
@@ -111,7 +75,7 @@ var usr = "";
 
     /************** InvokeAPICall FACTORY START *****************/
 
-    angular.module('app').factory('InvokeAPICall', ['$q', '$http', function($q, $http) {
+    angular.module('app').factory('InvokeAPICall', ['$q', '$http','User', function($q, $http,User) {
 
         var InvokeAPICall = {};
         //should be sent in any InvokeAPICall function
@@ -126,7 +90,11 @@ var usr = "";
             }
         	if(param.apiName != undefined){
         		params.apiName = param.apiName;
-        	}
+            }
+            if(User.isLoggedIn()){
+                params.token = User.getUserToken();
+                params.user_id  = User.getUserId();
+            }
 
         	var httpConfig = {headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
             $http.post(
@@ -384,10 +352,31 @@ var usr = "";
         $scope.pageParams = {};
         $scope.pageTitle = "Home";
 
+       
+
         $scope.setCurrentPageTitle = function(title) {
             $scope.pageTitle = title;
         }
 
+        /********************* start   Manage Application vide Menu and display screen  *************************/
+        $scope.appDisplay = {
+            "showSideMenu" : false,
+            "showSideMenuItem" : ""
+        };
+        $scope.sideMenuItem = {
+            "client" : "client",
+            "talent" : "talent",
+            "sponsor" : "sponsor",
+            "admin" : "admin",
+            "none" : ""
+        };
+
+        $scope.enableSideMenuDisplay = function(val,showMenuItem){
+            $scope.appDisplay.showSideMenu = val;
+            $scope.appDisplay.showMenuItem = showMenuItem;
+        }
+
+        /**************** END Manage Application vide Menu and display screen  ************************/
 
         /****************************  Toast Message ***************************************/
         $scope.showToast = function(title, message, callback, options) {

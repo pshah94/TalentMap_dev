@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/home.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/clientlogin.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/clienthome.css" />
 
 
     <!-- JavaScript library import -->
@@ -38,12 +39,13 @@
       <!-- /* <div class="text-center py-2 lead"><h1>TalentMap</h1> </div>*/-->
                 
     </header>
-
-
-    <div class="container">
+        
+<main class="container" >
         <ng-view></ng-view>
-    </div>
+         
+    
 
+</main>
 
     
 <footer class="footer-bs">
@@ -59,6 +61,7 @@
 
     <!-- Angular library and  controller , module, config, route js linking -->
     <script src="js/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
     <script src="js/angular/angular.js"></script>
     <script src="js/angular/angular-route.js"></script>
     <script src="js/angular/angular-animate.js"></script>

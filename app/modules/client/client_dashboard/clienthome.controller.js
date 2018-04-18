@@ -6,6 +6,11 @@
 
     function ClientHomeController($scope, User, $timeout, $filter, $rootScope,InvokeAPICall, $location) {
 
+        $scope.sideMenu = "app/modules/client/clientSideMenu.html"; 
+
+        $scope.abc = function(val){
+            $scope.clientTab = val;
+        }
     
     
     }
