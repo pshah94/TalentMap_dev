@@ -6,7 +6,7 @@
 
     function ClientHomeController($scope, User, $timeout, $filter, $rootScope,InvokeAPICall, $location) {
 
-        alert("helo");
+    
     
     }
 })();
