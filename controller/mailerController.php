@@ -20,7 +20,7 @@ class mailerController
     {
         $mail = new PHPMailer(); // create a new object
         $mail->IsSMTP(); // enable SMTP
-        $mail->SMTPDebug = 2; // debugging: 1 = errors and messages, 2 = messages only
+       // $mail->SMTPDebug = 2; // debugging: 1 = errors and messages, 2 = messages only
         $mail->SMTPAuth = true; // authentication enabled
         $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
         //$mail->Host = gethostbyname('smtp.gmail.com');
@@ -36,12 +36,13 @@ class mailerController
             )
         );
         $mail->IsHTML(true);
-        $mail->SMTPAutoTLS = true;
-        $mail->Host = 'webmail.csolutions.org';
-        $mail->Username = "Talentmap@csolutions.org";
+        $mail->SMTPAutoTLS = false;
+        $mail->Host = 'tls://smtp.gmail.com:587';
+        $mail->Username = "talentmap.csolutions@gmail.com";
         $mail->Password = "CapSt0ne2018#";
         
-        $mail->SetFrom("Talentmap@csolutions.org");
+        $mail->SetFrom("talentmap.csolutions@gmail.com","TalentMap System");
+        $mail->AddReplyTo('Talentmap@csolutions.org', 'TalentMap team');
         /*$mail->Host = 'tls://smtp.gmail.com:587';
         $mail->Username = "pps.cad2018@gmail.com";
         $mail->Password = "pps12345";
