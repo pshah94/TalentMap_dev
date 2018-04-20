@@ -43,7 +43,7 @@ lsScope = "";
 
         $scope.getAdminHome = function() {
             var param = {};
-            $location.path("/admin/home");
+            $location.path("/admin/home"); 
         };
     }
 })();

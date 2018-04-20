@@ -10,7 +10,7 @@ lsScope = "";
 
         $scope.goToManageClient = function() {
             $location.path("/Admin/manageClient.html");
-        }
+        } 
         console.log(lsScope);
     }
 })();

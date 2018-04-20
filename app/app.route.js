@@ -20,7 +20,7 @@
             controller: 'adminLoginController',
             templateUrl: 'app/modules/Admin/login/adminLogin.html'
         }).when('/admin/home', {
-            controller: 'adminHomeController',
+            controller: 'adminHomeController', 
             templateUrl: 'app/modules/Admin/home/home.html'
         }).when('/admin/manageClient', {
             controller: 'manageClientController',

@@ -13,6 +13,7 @@ lsScope = "";
         $scope.goToManageClient = function() {
             alert("hi");
             $location.path("/Admin/manageClient");
+            
         }
         console.log(lsScope);
     }
