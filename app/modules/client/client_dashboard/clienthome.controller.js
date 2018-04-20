@@ -6,12 +6,11 @@
 
     function ClientHomeController($scope, User, $timeout, $filter, $rootScope,InvokeAPICall, $location) {
 
-        $scope.sideMenu = "app/modules/client/clientSideMenu.html"; 
+       // $scope.sideMenu = "app/modules/client/clientSideMenu.html"; 
 
+       $scope.clientTab = "clientHome";
         $scope.abc = function(val){
             $scope.clientTab = val;
         }
-    
-    
     }
-})();
+})();44

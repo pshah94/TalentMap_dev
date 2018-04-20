@@ -1,12 +1,3 @@
-/* Application Router
- * 
- * @Contributors
- * Parth Shah 
- *
- * @Version
- * 1.0
- *
- */
 
 (function() {
     "use strict";

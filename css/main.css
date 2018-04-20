@@ -21,3 +21,13 @@
     max-width: 100% !important;
     
 }
+main{
+    min-height:430px;
+   
+}
+
+/* Each page right side portionof menu */
+.containerWrapper{
+    padding-left: 14%;
+    padding-top: 10px;    
+}

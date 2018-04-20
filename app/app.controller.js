@@ -295,6 +295,16 @@ var usr = "";
         };
     }]);
 
+/*   CLIENT MENU DIRECTIVE  */////
+angular.module('app').directive("clientMenu",function(){
+    return{
+        templateUrl:"app/modules/client/clientSideMenu.html",
+       //template:"<div>Hello</div>", 
+       bindToController:true,
+        restrict:"E"
+    };
+});
+
     /******************** Only Number allow Function ******************/
 
 
