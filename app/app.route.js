@@ -1,12 +1,3 @@
-/* Application Router
- * 
- * @Contributors
- * Parth Shah 
- *
- * @Version
- * 1.0
- *
- */
 
 (function() {
     "use strict";
@@ -16,6 +7,15 @@
         $routeProvider.when('/', {
             controller: 'HomeController',
             templateUrl: 'app/modules/home/home.html'
+        }).when('/admin/login', {
+            controller: 'adminLoginController',
+            templateUrl: 'app/modules/Admin/login/adminLogin.html'
+        }).when('/admin/home', {
+            controller: 'adminHomeController', 
+            templateUrl: 'app/modules/Admin/home/home.html'
+        }).when('/admin/manageClient', {
+            controller: 'manageClientController',
+            templateUrl: 'app/modules/Admin/manageClient/manageClient.html'
         }).when('/client/login', {
             controller: 'ClientLoginCtrl',
             templateUrl: 'app/modules/client/login/login.html'

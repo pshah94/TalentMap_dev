@@ -39,7 +39,7 @@ class loginController
         $param = array();
         $param["email"] = $data["email"];
         $param["user_type"] = $data["user_type"];
-        $param["password"] = $data["password"];
+        $param["password"] = md5( $data["password"]);
         
         $conn = dbCon::getDbCon();
         $sql = "select count(*) as 'row_count', id as 'user_id' from user_details where email = ? and user_type = ? and password = ?";

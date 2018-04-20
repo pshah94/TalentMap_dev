@@ -3,7 +3,7 @@
     padding: 16px 0 17px;
     margin-left: 42%;
 
-  }
+}
 
 .footer-bs {
     margin-top: 20px;
@@ -14,4 +14,20 @@
     border-bottom-right-radius: 6px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 6px;
-    }
+}
+
+
+.container {
+    max-width: 100% !important;
+    
+}
+main{
+    min-height:430px;
+   
+}
+
+/* Each page right side portionof menu */
+.containerWrapper{
+    padding-left: 14%;
+    padding-top: 10px;    
+}
