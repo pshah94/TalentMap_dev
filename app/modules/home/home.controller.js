@@ -14,7 +14,9 @@ $scope.gotoAdminLogin = function(){
     $location.path("/admin/login");
 };
 
-
+$scope.gotoTalentLogin = function(){
+    $location.path("/talent/login");
+};
       
         
         console.log(lsScope);

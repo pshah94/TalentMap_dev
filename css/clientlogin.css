@@ -1,4 +1,9 @@
 .clientlogin .push {
     height: 20px;
   }
-  
+
+  .middle-border {
+    min-height: 350px;
+    margin-top: 35px;
+    border-right: 2px solid #8e6666;
+  }

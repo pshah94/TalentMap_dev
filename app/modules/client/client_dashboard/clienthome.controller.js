@@ -13,4 +13,4 @@
             $scope.clientTab = val;
         }
     }
-})();44
+})();
