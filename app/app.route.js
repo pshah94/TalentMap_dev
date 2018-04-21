@@ -10,6 +10,12 @@
         }).when('/admin/login', {
             controller: 'adminLoginController',
             templateUrl: 'app/modules/Admin/login/adminLogin.html'
+        }).when('/talent/talenthome', {
+            controller: 'TalentHomeController',
+            templateUrl: 'app/modules/Talent/Talent_Dashboard/talenthome.html'
+        }).when('/talent/login', {
+            controller: 'TalentLoginController',
+            templateUrl: 'app/modules/Talent/Talent_Login/talentlogin.html'
         }).when('/admin/home', {
             controller: 'adminHomeController', 
             templateUrl: 'app/modules/Admin/home/home.html'
