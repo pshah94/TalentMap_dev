@@ -76,8 +76,10 @@ public function getClientProjectList ($data){
     
     $param =array();
     $param["user_id"] = $data["user_id"];
+    
     $conn = dbCon::getDbCon();
     $sql = "SELECT `cpi`.`id` as 'project_id',
+    `cpi`.`client_id`,
     `cpi`.`project_sponsor_name`,
     `cpi`.`title`,
     `cpi`.`email`,
@@ -105,11 +107,14 @@ public function getClientProjectList ($data){
     `cpi`.`year_submitted`,
     `cpi`.`month`,
     `cpi`.`day`,
-    `cpi`.`project_status`,
+    `cpi`.`project_status` as 'project_status_id',
+    `ps`.`status` as 'project_status',
     `cpi`.`sponsor_id`,
-    `s`.`organization_name`
-FROM `talentmapdev`.`client_project_idea` as `cpi`, `sponsor` as `s` where `s`.`id` = `cpi`.`sponsor_id` and `cpi`.`client_id` = ?;";
+    `s`.`organization_name` as 'sponsor_name'
+FROM `talentmapdev`.`client_project_idea` as `cpi`, `sponsor` as `s`, `project_status` as `ps` where `s`.`id` = `cpi`.`sponsor_id` and `cpi`.`project_status`=`ps`.`id` and `cpi`.`client_id` = ?;
+";
     $stmt = $conn->prepare($sql);
+    
     $stmt->bind_param("i",$param["user_id"]);
     $stmt->execute();
     $res = $stmt->get_result();
@@ -127,6 +132,67 @@ FROM `talentmapdev`.`client_project_idea` as `cpi`, `sponsor` as `s` where `s`.`
     return $responseData;
 }
 
+public function addClientProject(){
+    $responseData = phpConfig::$config["responseDataFormat"];
+    $resData = array();
+    
+    $param =array();
+    $param["user_id"] = $data["user_id"];
+    
+    $conn = dbCon::getDbCon();
+    $sql = 'insert into client_project_idea  (
+    client_id,
+    project_sponsor_name,
+    title,
+    email,
+    telephone_direct,
+    available_few_hours,
+    feedback_given,
+    project_title,
+    project_description,
+    attachments_provided,
+    problems_opportunity,
+    research_required,
+    analysis_required,
+    estimated_effort_hours,
+    report_format,
+    other_deliverables,
+    skill_needed_1,
+    skill_needed_2,
+    skill_needed_3,
+    required_training,
+    training_details,
+    international_component,
+    international_component_details,
+    coop_opportunity,
+    coop_opportunity_details,
+    year_submitted,
+    month,
+    day ) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';  //28 columns
+        
+ $stmt = $conn->prepare($sql);
+ $stmt->bind_param("issss
+                    iissi
+                    sssis
+                    ssssi
+                    sssss
+                    sss",
+                    $param["user_id"]);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $records = array();
+    while($row = $res->fetch_assoc()){
+        array_push( $records,$row);
+    }
+    
+    $stmt->close();
+    $resData["records"] = $records;
+    
+    //last line
+    $responseData["data"] = $resData;
+    
+    return $responseData;
+}
 
 //end of file
 }
