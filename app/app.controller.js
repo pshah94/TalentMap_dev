@@ -195,7 +195,13 @@ var usr = "";
         return {
             templateUrl: "app/modules/talent/talentSideMenu.html",
             bindToController: true,
-            restrict: "E"
+            restrict: "E",
+            transclude: true,
+            controller: function($scope) {
+                $scope.changeTab = function(tabName) {
+                    $scope.clientTab = tabName;
+                }
+            }
         };
     });
 

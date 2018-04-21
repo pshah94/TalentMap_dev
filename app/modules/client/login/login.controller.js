@@ -57,20 +57,17 @@ lsScope = "";
         $scope.loginClient = function() {
             $scope.loginerror = "";
             var emailId = $scope.login.username;
-            var passoword = $scope.login.password;
-            if (emailId.isEmpty() || !window.config.emailRegEx.test(emailId) || passoword.isEmpty()) {
+            var password = $scope.login.password;
+            if (emailId.isEmpty() || !window.config.emailRegEx.test(emailId) || password.isEmpty()) {
                 $scope.loginerror = "Enter valid email ID and password";
                 return;
             }
-
-
-
             var param = {};
             //apiName should be same as webApi php file's switch case
             param.apiName = "loginUser";
             param.data = {
                 "email": emailId,
-                "password": passoword,
+                "password": password,
                 "user_type": 3
             };
 
@@ -86,7 +83,6 @@ lsScope = "";
                         $scope.loginerror = receivedData.loginMessage;
                     }
                 }
-
             }
             var failure = function(responseData) {
                 if (responseData.status == config.statusCode.taskIncompleted) {
