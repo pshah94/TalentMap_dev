@@ -1,0 +1,85 @@
+/*side navbar css */
+.appSideMenu{
+    margin-left: -15px;
+    float: left;
+}
+
+.appSideMenu a:focus,a:hover,a{
+    outline:none;
+    text-decoration: none;
+}
+.appSideMenu li,ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.appSideMenu #navigation {
+    background: #0e1a35;
+}
+
+.appSideMenu #navigation {
+    padding: 0;
+}
+
+
+.appSideMenu .display-table-row {
+    display: table-row;
+    height: 100%;
+}
+
+.appSideMenu .display-table-cell {
+    display: table-cell;
+    float: none;
+    height: 100%;
+}
+
+.appSideMenu .v-align {
+    vertical-align: top;
+}
+
+
+.appSideMenu .navi i {
+    font-size: 20px;
+}
+
+
+
+.appSideMenu #navigation{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+.appSideMenu .navi a {
+    border-bottom: 1px solid #0d172e;
+    border-top: 1px solid #0d172e;
+    color: #ffffff !important;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 28px 20px;
+    text-decoration: none;
+}
+
+.appSideMenu .navi i {
+    margin-right: 15px;
+    color: #5584ff;
+}
+
+.appSideMenu .navi .active a {
+    background: #122143;
+    border-left: 5px solid #5584ff;
+    padding-left: 15px;
+}
+
+.appSideMenu .navi a:hover {
+    background: #122143 none repeat scroll 0 0;
+    border-left: 5px solid #5584ff;
+    display: block;
+    padding-left: 15px;
+}
+/* side navbar css end */
