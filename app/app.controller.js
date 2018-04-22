@@ -184,6 +184,17 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
+                    if(tabName == "clientHome"){
+                        $scope.goToPage("/client/clienthome");
+                    }else if(tabName == "clientAddProfile"){
+                        $scope.goToPage("/client/clienAddProfile");
+                    }else if(tabName == "clientAddProject"){
+                        $scope.goToPage("/client/clientaddproject");
+                    }else if(tabName == "clientViewProject"){
+                        $scope.goToPage("/client/clientviewproject");
+                    }else if(tabName == "clientLogout"){
+                        $scope.goToPage("/client/logout");
+                    }
                 }
             }
         };
