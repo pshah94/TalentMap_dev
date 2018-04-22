@@ -28,6 +28,18 @@
         }).when('/client/clienthome', {
             controller: 'ClientHomeController',
             templateUrl: 'app/modules/client/client_dashboard/clienthome.html'
+        }).when('/client/clienAddProfile', {
+            controller: 'ClientAddProfileController',
+            templateUrl: 'app/modules/client/client_addprofile/clientaddprofile.html'
+        }).when('/client/clientaddproject', {
+            controller: 'ClientAddProjectController',
+            templateUrl: 'app/modules/client/client_addproject/clientaddproject.html'
+        }).when('/client/clientviewproject', {
+            controller: 'ClientViewProjectController',
+            templateUrl: 'app/modules/client/client_viewproject/clientviewproject.html'
+        }).when('/client/logout', {
+            controller: 'ClientLoginCtrl',
+            templateUrl: 'app/modules/client/login/login.html'
         }).otherwise({
             redirectTo: '/'
         });
