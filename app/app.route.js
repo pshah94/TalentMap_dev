@@ -10,9 +10,6 @@
         }).when('/admin/login', {
             controller: 'adminLoginController',
             templateUrl: 'app/modules/Admin/login/adminLogin.html'
-        }).when('/talent/talenthome', {
-            controller: 'TalentHomeController',
-            templateUrl: 'app/modules/Talent/Talent_Dashboard/talenthome.html'
         }).when('/talent/login', {
             controller: 'TalentLoginController',
             templateUrl: 'app/modules/Talent/Talent_Login/talentlogin.html'
@@ -38,8 +35,21 @@
             controller: 'ClientViewProjectController',
             templateUrl: 'app/modules/client/client_viewproject/clientviewproject.html'
         }).when('/client/logout', {
-            controller: 'ClientLoginCtrl',
-            templateUrl: 'app/modules/client/login/login.html'
+            redirectTo: '/'
+        }).when('/talent/talentmanageprofile', {
+            controller: 'TalentManageProfileController',
+            templateUrl: 'app/modules/Talent/talent_manageprofile/talentmanageprofile.html'
+        }).when('/talent/talentviewprojects', {
+            controller: 'TalentViewProjectsController',
+            templateUrl: 'app/modules/Talent/talent_viewprojects/talentviewprojects.html'
+        }).when('/talent/talentmanagegroup', {
+            controller: 'TalentManageGroupController',
+            templateUrl: 'app/modules/Talent/talent_managegroup/talentmanagegroup.html'
+        }).when('/talent/talenthome', {
+            controller: 'TalentHomeController',
+            templateUrl: 'app/modules/Talent/Talent_Dashboard/talenthome.html'
+        }).when('/talent/logout', {
+            redirectTo: '/'
         }).otherwise({
             redirectTo: '/'
         });
