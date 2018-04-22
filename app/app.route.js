@@ -1,4 +1,3 @@
-
 (function() {
     "use strict";
 
@@ -14,7 +13,7 @@
             controller: 'TalentLoginController',
             templateUrl: 'app/modules/Talent/Talent_Login/talentlogin.html'
         }).when('/admin/home', {
-            controller: 'adminHomeController', 
+            controller: 'adminHomeController',
             templateUrl: 'app/modules/Admin/home/home.html'
         }).when('/admin/manageClient', {
             controller: 'manageClientController',
@@ -25,7 +24,7 @@
         }).when('/client/clienthome', {
             controller: 'ClientHomeController',
             templateUrl: 'app/modules/client/client_dashboard/clienthome.html'
-        }).when('/client/clienAddProfile', {
+        }).when('/client/clientProfile', {
             controller: 'ClientAddProfileController',
             templateUrl: 'app/modules/client/client_addprofile/clientaddprofile.html'
         }).when('/client/clientaddproject', {

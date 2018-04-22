@@ -79,8 +79,8 @@ var usr = "";
                 params.apiName = param.apiName;
             }
             if (User.isLoggedIn()) {
-                params.token = User.getUserToken();
-                params.user_id = User.getUserId();
+                params.data.token = User.getUserToken();
+                params.data.user_id = User.getUserId();
             }
 
             var httpConfig = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
@@ -184,15 +184,15 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
-                    if(tabName == "clientHome"){
+                    if (tabName == "clientHome") {
                         $scope.goToPage("/client/clienthome");
-                    }else if(tabName == "clientAddProfile"){
-                        $scope.goToPage("/client/clienAddProfile");
-                    }else if(tabName == "clientAddProject"){
+                    } else if (tabName == "clientProfile") {
+                        $scope.goToPage("/client/clientProfile");
+                    } else if (tabName == "clientAddProject") {
                         $scope.goToPage("/client/clientaddproject");
-                    }else if(tabName == "clientViewProject"){
+                    } else if (tabName == "clientViewProject") {
                         $scope.goToPage("/client/clientviewproject");
-                    }else if(tabName == "clientLogout"){
+                    } else if (tabName == "clientLogout") {
                         $scope.goToPage("/client/logout");
                     }
                 }
@@ -211,15 +211,15 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
-                    if(tabName == "talentHome"){
+                    if (tabName == "talentHome") {
                         $scope.goToPage("/talent/talenthome");
-                    }else if(tabName == "talentManageProfile"){
+                    } else if (tabName == "talentManageProfile") {
                         $scope.goToPage("/talent/talentmanageprofile");
-                    }else if(tabName == "talentViewProjects"){
+                    } else if (tabName == "talentViewProjects") {
                         $scope.goToPage("/talent/talentviewprojects");
-                    }else if(tabName == "talentManageGroup"){
+                    } else if (tabName == "talentManageGroup") {
                         $scope.goToPage("/talent/talentmanagegroup");
-                    }else if(tabName == "talentLogout"){
+                    } else if (tabName == "talentLogout") {
                         $scope.goToPage("/talent/logout");
                     }
                 }
@@ -268,7 +268,8 @@ var usr = "";
         $scope.$watch(User.isLoggedIn, function(value, oldValue) {
             if (!value) {
                 console.log("User Is Not Logged In, Redirecting to Login Page");
-                //$state.go('home', {}, { reload: true });
+                alert("You are not logged in - Redirecting to HOME PAGE");
+                $scope.goToPage("/");
             }
             if (value) {
                 console.log("User Is Logged In");
