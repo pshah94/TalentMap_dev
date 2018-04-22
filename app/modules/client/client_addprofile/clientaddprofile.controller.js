@@ -84,6 +84,12 @@
 
         $timeout(function() {
             $scope.getClientProfileDetails();
+            $timeout(function() {
+                $scope.$apply(function() {
+                    $scope.changeTab("clientProfile");
+                });
+
+            }, 500);
         });
     }
 })();

@@ -5,9 +5,13 @@
 
     function ClientHomeController($scope, User, $timeout, $filter, $rootScope, InvokeAPICall, $location) {
 
+
         $timeout(function() {
-            $scope.changeTab("clientHome");
-        });
+            $scope.$apply(function() {
+                $scope.changeTab("clientHome");
+            });
+
+        }, 500);
 
     }
 })();

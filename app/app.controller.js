@@ -181,7 +181,7 @@ var usr = "";
             bindToController: true,
             restrict: "E",
             transclude: true,
-            controller: function($scope) {
+            controller: function($scope, User) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
                     if (tabName == "clientHome") {
@@ -193,7 +193,8 @@ var usr = "";
                     } else if (tabName == "clientViewProject") {
                         $scope.goToPage("/client/clientviewproject");
                     } else if (tabName == "clientLogout") {
-                        $scope.goToPage("/client/logout");
+                        $scope.goToPage("/");
+                        User.logoutUser();
                     }
                 }
             }
@@ -236,33 +237,24 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
-                    if(tabName == "adminHome")
-                        {
-                            $scope.goToPage("admin/home");
-                        }
-                        else if(tabName == "manageClient")
-                        {
-                               $scope.goToPage("admin/manageClient");
-                        }
-                        else if(tabName == "manageTalent")
-                        {
-                            $scope.goToPage("admin/manageTalent");
-                        }
-                       else if(tabName == "manageSponser")
-                        {
-                            $scope.goToPage("admin/manageSponser");
-                        }
-                        else if(tabName == "adminLogout")
-                        {
-                           // $location.path("/");
-                        }
-                          
+                    if (tabName == "adminHome") {
+                        $scope.goToPage("admin/home");
+                    } else if (tabName == "manageClient") {
+                        $scope.goToPage("admin/manageClient");
+                    } else if (tabName == "manageTalent") {
+                        $scope.goToPage("admin/manageTalent");
+                    } else if (tabName == "manageSponser") {
+                        $scope.goToPage("admin/manageSponser");
+                    } else if (tabName == "adminLogout") {
+                        // $location.path("/");
+                    }
+
                 }
             }
         };
     });
 
-    
+
 
     /*****************APPLICATION VIDE CONTROLLER START ***********************/
 
@@ -305,8 +297,10 @@ var usr = "";
         $scope.$watch(User.isLoggedIn, function(value, oldValue) {
             if (!value) {
                 console.log("User Is Not Logged In, Redirecting to Login Page");
-                alert("You are not logged in - Redirecting to HOME PAGE");
-                $scope.goToPage("/");
+                if ($location.path() !== "/") {
+                    alert("You are not logged in - Redirecting to HOME PAGE");
+                    $scope.goToPage("/");
+                }
             }
             if (value) {
                 console.log("User Is Logged In");
