@@ -22,6 +22,12 @@
         }).when('/admin/manageClient', {
             controller: 'manageClientController',
             templateUrl: 'app/modules/Admin/manageClient/manageClient.html'
+        }).when('/admin/manageTalent', {
+            controller: 'manageTalentController',
+            templateUrl: 'app/modules/Admin/manageTalent/manageTalent.html'
+        }).when('/admin/manageSponser', {
+            controller: 'manageSponserController',
+            templateUrl: 'app/modules/Admin/manageSponser/manageSponser.html'
         }).when('/client/login', {
             controller: 'ClientLoginCtrl',
             templateUrl: 'app/modules/client/login/login.html'
