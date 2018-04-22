@@ -114,7 +114,6 @@
         };
 
         $timeout(function() {
-
             $scope.username = "parth_shah9478@yahoo.com";
             $scope.password = "abc1234";
         })
