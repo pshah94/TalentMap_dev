@@ -184,6 +184,17 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
+                    if(tabName == "clientHome"){
+                        $scope.goToPage("/client/clienthome");
+                    }else if(tabName == "clientAddProfile"){
+                        $scope.goToPage("/client/clienAddProfile");
+                    }else if(tabName == "clientAddProject"){
+                        $scope.goToPage("/client/clientaddproject");
+                    }else if(tabName == "clientViewProject"){
+                        $scope.goToPage("/client/clientviewproject");
+                    }else if(tabName == "clientLogout"){
+                        $scope.goToPage("/client/logout");
+                    }
                 }
             }
         };
@@ -195,7 +206,24 @@ var usr = "";
         return {
             templateUrl: "app/modules/talent/talentSideMenu.html",
             bindToController: true,
-            restrict: "E"
+            restrict: "E",
+            transclude: true,
+            controller: function($scope) {
+                $scope.changeTab = function(tabName) {
+                    $scope.clientTab = tabName;
+                    if(tabName == "talentHome"){
+                        $scope.goToPage("/talent/talenthome");
+                    }else if(tabName == "talentManageProfile"){
+                        $scope.goToPage("/talent/talentmanageprofile");
+                    }else if(tabName == "talentViewProjects"){
+                        $scope.goToPage("/talent/talentviewprojects");
+                    }else if(tabName == "talentManageGroup"){
+                        $scope.goToPage("/talent/talentmanagegroup");
+                    }else if(tabName == "talentLogout"){
+                        $scope.goToPage("/talent/logout");
+                    }
+                }
+            }
         };
     });
 

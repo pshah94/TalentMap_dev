@@ -7,15 +7,15 @@ lsScope = "";
     function HomeController($scope, User, $timeout, $filter, InvokeAPICall, $rootScope, $location) {
 
         $scope.gotoClientLogin = function() {
-            $location.path("/client/login");
+            $scope.goToPage("/client/login");
         };
 
         $scope.gotoAdminLogin = function() {
-            $location.path("/admin/login");
+            $scope.goToPage("/admin/login");
         };
 
         $scope.gotoTalentLogin = function() {
-            $location.path("/talent/login");
+            $scope.goToPage("/talent/login");
         };
 
 
