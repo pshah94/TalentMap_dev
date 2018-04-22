@@ -5,7 +5,7 @@
 
     function TalentManageProfileController($scope, User, $timeout, $filter, $rootScope, InvokeAPICall, $location) {
 
-        $scopse.selectTab = function(tab){
+        $scope.selectTab = function(tab){
             $scope.selectedTab = tab;
         }
         $timeout(function(){

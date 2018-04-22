@@ -227,6 +227,43 @@ var usr = "";
         };
     });
 
+    /*   Talent MENU DIRECTIVE  */ ////
+    angular.module('app').directive("adminMenu", function() {
+        return {
+            templateUrl: "app/modules/admin/adminSideMenu.html",
+            bindToController: true,
+            restrict: "E",
+            controller: function($scope) {
+                $scope.changeTab = function(tabName) {
+                    $scope.clientTab = tabName;
+                    if(tabName == "adminHome")
+                        {
+                            $scope.goToPage("admin/home");
+                        }
+                        else if(tabName == "manageClient")
+                        {
+                               $scope.goToPage("admin/manageClient");
+                        }
+                        else if(tabName == "manageTalent")
+                        {
+                            $scope.goToPage("admin/manageTalent");
+                        }
+                       else if(tabName == "manageSponser")
+                        {
+                            $scope.goToPage("admin/manageSponser");
+                        }
+                        else if(tabName == "adminLogout")
+                        {
+                           // $location.path("/");
+                        }
+                          
+                }
+            }
+        };
+    });
+
+    
+
     /*****************APPLICATION VIDE CONTROLLER START ***********************/
 
 

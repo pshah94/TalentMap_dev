@@ -6,30 +6,30 @@
 
 
        
-<!--
+
 
                 <ul class="nav nav-tabs nav-justified">
-                        <li class="nav-item" ng-class="{active:'tab1'}" role="presentation">
-                            <a class="nav-link" ng-click="selectTab('tab1')" data-toggle="tab" role="tab">Profile</a>
+                        <li class="nav-item" ng-class="{active:selectedTab == 1}" role="presentation">
+                            <a class="nav-link" ng-click="selectTab(1)" data-toggle="tab" role="tab">Profile</a>
                         </li>
-                        <li class="nav-item" ng-class="{active:'tab2'}" role="presentation">
-                            <a class="nav-link" ng-click="selectTab('tab2)" data-toggle="tab" role="tab">Follow</a>
+                        <li class="nav-item" ng-class="{active:selectedTab == 2}" role="presentation">
+                            <a class="nav-link" ng-click="selectTab(2)" data-toggle="tab" role="tab">Follow</a>
                         </li>
-                        <li class="nav-item" ng-class="{active:'tab3'}" role="presentation">
-                            <a class="nav-link" ng-click="selectTab('tab3')" data-toggle="tab" role="tab">Contact</a>
+                        <li class="nav-item" ng-class="{active:selectedTab == 3}" role="presentation">
+                            <a class="nav-link" ng-click="selectTab(3)" data-toggle="tab" role="tab">Contact</a>
                         </li>
                 </ul>
                 
                 <div class="tab-content">
-                        <div role="tabpanel" ng-show="selectedTab == 'tab1'">
+                        <div role="tabpanel" class="tab-pane" ng-class="{active:selectedTab == 1}" ng-show="selectedTab == 1">
                             hi
                         </div>
 
-                        <div role="tabpanel" ng-show="selectedTab == 'tab2'">
+                        <div role="tabpanel" class="tab-pane" ng-class="{active:selectedTab == 2}" ng-show="selectedTab == 2">
                             hi2
                         </div>
                         
-                        <div role="tabpanel" ng-show="selectedTab == 'tab3'">   
+                        <div role="tabpanel" class="tab-pane" ng-class="{active:selectedTab == 3}" ng-show="selectedTab == 3">   
                             hi3
                         </div>
                 </div>
@@ -52,7 +52,6 @@
                     </div>
 </div>
 
--->
 
 
 
