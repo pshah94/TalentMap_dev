@@ -2,15 +2,14 @@ lsScope = "";
 (function() {
     'use strict';
 
-    angular.module('app.admin.manageClient').controller('manageClientController', manageClientController);
+    angular.module('app.admin.manageSponser').controller('manageSponserController', manageSponserController);
 
-    function manageClientController($scope, User, $timeout, $filter, $rootScope, $location) {
+    function manageSponserController($scope, User, $timeout, $filter, $rootScope, $location) {
         $scope.selectTab = function(tab){
             $scope.selectedTab = tab;
         }
         $timeout(function(){
             $scope.selectTab(1);
-            
         });
     }
 })();
