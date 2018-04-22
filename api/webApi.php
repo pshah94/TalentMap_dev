@@ -4,6 +4,7 @@ include_once  '../config/config.php';
 require_once '../controller/userController.php';
 require_once '../controller/registrationController.php';
 require_once '../controller/loginController.php';
+require_once '../controller/clientController.php';
 
 //getting response format
 $response = phpConfig::$config["responseFormat"];
@@ -30,6 +31,10 @@ if(isset($request["talentMap"])){
             $responseData = (new registrationController)->registerNewUser($request["data"]);
             break;
         }
+        case "registerUser" :{
+            $responseData = (new registrationController)->registerUser($request["data"]);
+            break;
+        }
         case "getRegistrationRequestList" :{
             $responseData = (new registrationController)->getRegistrationRequestList($request["data"]);
             break;
@@ -43,16 +48,38 @@ if(isset($request["talentMap"])){
             $responseData = (new loginController)->loginUser($request["data"]);
             break;
         }
-        case 'checkActiveUser' : {
+        case 'getClientProfileDetails' : {
             
             if(checkToken($request["data"])){
-                $responseData = array("token_status"=>"valid");
+                $responseData =  (new clientController)->getClientProfileDetails($request["data"]);
             }else{
-                $responseData = array("token_status"=>"invalid");
+                $responseData = phpConfig::$config["invalidTokenReponse"];
             }
             
             break;
         }
+        case 'updateClientProfileDetails' : {
+            
+            if(checkToken($request["data"])){
+                $responseData =  (new clientController)->updateClientProfileDetails($request["data"]);
+            }else{
+                $responseData = phpConfig::$config["invalidTokenReponse"];
+            }
+            
+            break;
+        }
+        case 'getClientProjectList' : {
+            
+            if(checkToken($request["data"])){
+                $responseData =  (new clientController)->getClientProjectList($request["data"]);
+            }else{
+                $responseData = phpConfig::$config["invalidTokenReponse"];
+            }
+            
+            break;
+        }
+        
+        
          default :{
              $response["status"] = phpConfig::$config["statusCode"]["invalidApiName"];
              $response["error"] = "Invalid Api Name";
