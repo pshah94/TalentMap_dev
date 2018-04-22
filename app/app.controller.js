@@ -211,6 +211,17 @@ var usr = "";
             controller: function($scope) {
                 $scope.changeTab = function(tabName) {
                     $scope.clientTab = tabName;
+                    if(tabName == "talentHome"){
+                        $scope.goToPage("/talent/talenthome");
+                    }else if(tabName == "talentManageProfile"){
+                        $scope.goToPage("/talent/talentmanageprofile");
+                    }else if(tabName == "talentViewProjects"){
+                        $scope.goToPage("/talent/talentviewprojects");
+                    }else if(tabName == "talentManageGroup"){
+                        $scope.goToPage("/talent/talentmanagegroup");
+                    }else if(tabName == "talentLogout"){
+                        $scope.goToPage("/talent/logout");
+                    }
                 }
             }
         };
